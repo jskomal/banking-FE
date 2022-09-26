@@ -1,0 +1,60 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100vw;
+  padding: 1rem 1rem.5rem;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  line-height: 1;
+}
+
+.logo > img {
+  height: 5vh;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+  font-size: 1.5rem;
+  transition: 300ms ease-in-out;
+}
+
+a:hover {
+  color: red;
+  text-decoration: underline;
+  transition: 300ms ease-in-out;
+}
+
+.user {
+  display: flex;
+  padding: 0.5rem;
+  border: 1px solid grey;
+  border-radius: 1rem;
+  align-items: center;
+  transition: 300ms ease-in-out;
+}
+
+.user:hover {
+  background-color: grey;
+  color: white;
+}
+
+.initials {
+  border: 1px solid black;
+  color: black;
+  border-radius: 50%;
+  width: 4rem;
+  height: 4rem;
+  padding: 1rem;
+  font-size: 1.2rem;
+  background-color: rgb(205, 205, 205);
+  margin-right: 0.5rem;
+}
+
+.user-details {
+  text-align: end;
+}
