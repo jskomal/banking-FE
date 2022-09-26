@@ -12,6 +12,18 @@ function App() {
   return (
     <div className='app'>
       <Header userInfo={userInfo} handleNotifications={handleNotifications} />
+      <main>
+        <div>
+          <h2>My Accounts</h2>
+          <p>Checking Component</p>
+          <p>Savings Component</p>
+        </div>
+        <div>
+          <h3>Quick Transfer</h3>
+          <p>Transfer Component</p>
+          <p>Quick Actions Component</p>
+        </div>
+      </main>
     </div>
   )
 }
