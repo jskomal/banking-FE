@@ -21,17 +21,18 @@ a {
   color: black;
   font-size: 1.5rem;
   transition: 300ms ease-in-out;
+  border: 2px solid white;
 }
 
 a:hover {
   color: red;
-  text-decoration: underline;
+  border-bottom: 2px solid red;
   transition: 300ms ease-in-out;
 }
 
 .user {
   display: flex;
-  padding: 0.5rem;
+  padding: 0.75rem;
   border: 1px solid grey;
   border-radius: 1rem;
   align-items: center;
