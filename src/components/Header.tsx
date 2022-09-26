@@ -27,10 +27,10 @@ function Header({ userInfo, handleNotifications }: HeaderProps) {
             <p>Credit Union</p>
           </div>
         </div>
-        <Link to={'accounts'}>My Accounts {'\u2304'}</Link>
+        <Link to={'/'}>My Accounts {'\u2304'}</Link>
         <Link to={'transfer'}>Move Money {'\u2304'}</Link>
         <Link to={'analytics'}>Analytics {'\u2304'}</Link>
-        <div>
+        <div className='notification'>
           <img src={bell} alt='notification' />
           <p>{notificationCount}</p>
         </div>
