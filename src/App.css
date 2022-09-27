@@ -2,5 +2,6 @@ main {
   background-color: whitesmoke;
   height: 89vh;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-evenly;
+  text-align: center;
 }
