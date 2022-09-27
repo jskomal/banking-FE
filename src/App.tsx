@@ -1,7 +1,10 @@
 import { useState } from 'react'
-import './App.css'
-import Header from './components/Header'
 import { user, checkingAccount, savingsAccount } from './assets/data'
+
+import Header from './components/Header'
+import AccountPreview from './components/AccountPreview'
+import './App.css'
+
 function App() {
   const [userInfo, setUserInfo] = useState(user)
   const [checking, setChecking] = useState(checkingAccount)
@@ -15,8 +18,8 @@ function App() {
       <main>
         <div>
           <h2>My Accounts</h2>
-          <p>Checking Component</p>
-          <p>Savings Component</p>
+          <AccountPreview account={checking} />
+          <AccountPreview account={savings} />
         </div>
         <div>
           <h3>Quick Transfer</h3>
