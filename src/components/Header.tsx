@@ -32,10 +32,10 @@ function Header({ userInfo, markNotificationAsRead }: HeaderProps) {
         <Link to={'/'} className={pathname === '/' ? 'active' : ''}>
           My Accounts {'\u2304'}
         </Link>
-        <Link to={'transfer'} className={pathname === '/transfer' ? 'active' : ''}>
+        <Link to={'transfer'} className={pathname === 'transfer' ? 'active' : ''}>
           Move Money {'\u2304'}
         </Link>
-        <Link to={'analytics'} className={pathname === '/analytics' ? 'active' : ''}>
+        <Link to={'analytics'} className={pathname === 'analytics' ? 'active' : ''}>
           Analytics {'\u2304'}
         </Link>
         <div
