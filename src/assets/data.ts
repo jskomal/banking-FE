@@ -18,14 +18,28 @@ export type TUser = {
   firstName: string
   lastName: string
   memberSince: string
-  notificationCount: number
+  notifications: TNotification[]
+}
+
+export type TNotification = {
+  id: number
+  title: string
+  body: string
+  isRead: boolean
 }
 
 export const user: TUser = {
   firstName: 'Billy',
   lastName: 'Banks',
   memberSince: '1/1/2020',
-  notificationCount: 1
+  notifications: [
+    {
+      id: 1,
+      title: 'Welcome to React Credit Union',
+      body: "Thank you for joining us! We're so happy that you've chosen to join our Credit Union!",
+      isRead: false
+    }
+  ]
 }
 
 export const checkingAccount: TAccount = {
