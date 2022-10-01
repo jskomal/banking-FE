@@ -4,6 +4,8 @@ import dayjs from 'dayjs'
 import { TAccount, currency } from '../assets/data'
 import { Link } from 'react-router-dom'
 
+import downArrow from '../assets/down.svg'
+
 import './AccountPreview.css'
 
 type AccountProps = {
@@ -17,9 +19,13 @@ const AccountPreview = ({ account }: AccountProps) => {
     <section className='account-preview'>
       <h4>{account.name}</h4>
       <h5>Account # {account.accountNumber}</h5>
-      <p onClick={() => setIsAccountOpen((prev) => !prev)} className='carrot'>
-        {isAccountOpen ? 'Hide' : 'Show'} Recent
-      </p>
+      <img
+        onClick={() => setIsAccountOpen((prev) => !prev)}
+        className={'carrot' + (isAccountOpen ? ' flipped' : '')}
+        src={downArrow}
+        alt='Show recent transactions'
+      />
+
       {isAccountOpen && (
         <div>
           <div className='grid-row'>
