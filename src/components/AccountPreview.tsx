@@ -51,7 +51,7 @@ const AccountPreview = ({ account }: AccountProps) => {
       <div className='balance-pair'>
         <h5>Balance: {currency.format(account.balance)}</h5>
         <Link to={account.type}>
-          <button>See All Transactions</button>
+          <button className='btn'>See All Transactions</button>
         </Link>
       </div>
     </section>
