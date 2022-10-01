@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import dayjs from 'dayjs'
 
 import { TAccount, currency } from '../assets/data'
 import { Link } from 'react-router-dom'
@@ -12,34 +13,33 @@ type AccountProps = {
 const AccountPreview = ({ account }: AccountProps) => {
   const [isAccountOpen, setIsAccountOpen] = useState(false)
 
-  const entries = account.transactions.map((entry, index) => {
-    if (index < 5) {
-      return (
-        <div className='grid-row' key={index}>
-          <p className='row-item'>{entry.date}</p>
-          <p className='row-item'>{entry.type}</p>
-          <p className='row-item'>{entry.to || entry.from}</p>
-          <p className='row-item'>{currency.format(entry.amount)}</p>
-        </div>
-      )
-    }
-  })
   return (
     <section className='account-preview'>
       <h4>{account.name}</h4>
       <h5>Account # {account.accountNumber}</h5>
       <p onClick={() => setIsAccountOpen((prev) => !prev)} className='carrot'>
-        {isAccountOpen ? 'Hide' : 'Show'} Recent Transactions
+        {isAccountOpen ? 'Hide' : 'Show'} Recent
       </p>
       {isAccountOpen && (
         <div>
           <div className='grid-row'>
-            <p className='row-item'>Date</p>
-            <p className='row-item'>Type</p>
-            <p className='row-item'>Requester</p>
-            <p className='row-item'>Amount</p>
+            <strong className='row-item'>Date</strong>
+            <strong className='row-item'>Type</strong>
+            <strong className='row-item'>Requester</strong>
+            <strong className='row-item'>Amount</strong>
           </div>
-          {entries}
+          {account.transactions.map((entry, index) => {
+            if (index < 5) {
+              return (
+                <div className='grid-row' key={index}>
+                  <p className='row-item'>{dayjs(entry.date).format('MMM D, YYYY')}</p>
+                  <p className='row-item'>{entry.type}</p>
+                  <p className='row-item'>{entry.to || entry.from}</p>
+                  <p className='row-item'>{currency.format(entry.amount)}</p>
+                </div>
+              )
+            }
+          })}
         </div>
       )}
       <div className='balance-pair'>
