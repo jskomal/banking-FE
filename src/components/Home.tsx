@@ -7,9 +7,9 @@ import type { TAccount } from '../assets/data'
 
 type HomeOutletProps = {
   checking: TAccount
-  setChecking: () => void
+  setChecking: React.Dispatch<React.SetStateAction<TAccount>>
   savings: TAccount
-  setSavings: () => void
+  setSavings: React.Dispatch<React.SetStateAction<TAccount>>
 }
 
 function Home() {

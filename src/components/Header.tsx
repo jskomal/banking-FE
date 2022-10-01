@@ -2,7 +2,7 @@ import { useState } from 'react'
 import dayjs from 'dayjs'
 import reactLogo from '../assets/react.svg'
 import bell from '../assets/bell.svg'
-import { Link, useLocation } from 'react-router-dom'
+import { NavLink, useLocation } from 'react-router-dom'
 import './Header.css'
 
 import { TUser } from '../assets/data'
@@ -29,15 +29,15 @@ function Header({ userInfo, markNotificationAsRead }: HeaderProps) {
             <p>Credit Union</p>
           </div>
         </div>
-        <Link to={'/'} className={pathname === '/' ? 'active' : ''}>
+        <NavLink to={'/'} className={pathname === '/' ? 'active' : ''}>
           My Accounts {'\u2304'}
-        </Link>
-        <Link to={'transfer'} className={pathname === 'transfer' ? 'active' : ''}>
+        </NavLink>
+        <NavLink to={'/transfer'} className={pathname === 'transfer' ? 'active' : ''}>
           Move Money {'\u2304'}
-        </Link>
-        <Link to={'analytics'} className={pathname === 'analytics' ? 'active' : ''}>
+        </NavLink>
+        <NavLink to={'/analytics'} className={pathname === 'analytics' ? 'active' : ''}>
           Analytics {'\u2304'}
-        </Link>
+        </NavLink>
         <div
           className='notification'
           onClick={() => setIsNotificationOpen((prev) => !prev)}
