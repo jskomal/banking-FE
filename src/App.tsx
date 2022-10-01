@@ -17,7 +17,7 @@ function App() {
       <Header userInfo={userInfo} handleNotifications={handleNotifications} />
       <main>
         <div>
-          <h2>My Accounts</h2>
+          <h2 className='title'>My Accounts</h2>
           <AccountPreview account={checking} />
           <AccountPreview account={savings} />
         </div>
