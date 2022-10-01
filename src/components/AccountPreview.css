@@ -46,14 +46,14 @@
   align-items: center;
 }
 
-a > button {
+.btn {
   font-size: 0.8rem;
   border: 1px solid white;
   background-color: white;
   transition: 300ms ease-in-out;
 }
 
-a > button:hover {
+.btn:hover {
   border: 1px solid #333;
   border-radius: 1rem;
   color: white;
