@@ -1,10 +1,13 @@
 import { useState } from 'react'
-import { user, checkingAccount, savingsAccount } from './assets/data'
+import { Route, Routes } from 'react-router-dom'
 
 import Header from './components/Header'
-import AccountPreview from './components/AccountPreview'
+import Home from './components/Home'
+import Transfer from './components/Transfer'
+import Analytics from './components/Analytics'
+
 import './App.css'
-import QuickActions from './components/QuickActions'
+import { user, checkingAccount, savingsAccount } from './assets/data'
 
 function App() {
   const [userInfo, setUserInfo] = useState(user)
@@ -22,16 +25,11 @@ function App() {
   return (
     <div className='app'>
       <Header userInfo={userInfo} markNotificationAsRead={markNotificationAsRead} />
-      <main>
-        <div>
-          <h2 className='title'>My Accounts</h2>
-          <AccountPreview account={checking} />
-          <AccountPreview account={savings} />
-        </div>
-        <div>
-          <QuickActions />
-        </div>
-      </main>
+      <Routes>
+        <Route path='/' element={<Home checking={checking} savings={savings} />} />
+        <Route path='/transfer' element={<Transfer />} />
+        <Route path='/analytics' element={<Analytics />} />
+      </Routes>
     </div>
   )
 }
