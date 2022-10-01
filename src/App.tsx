@@ -2,9 +2,8 @@ import { useState } from 'react'
 import { user, checkingAccount, savingsAccount } from './assets/data'
 
 import Header from './components/Header'
-import AccountPreview from './components/AccountPreview'
 import './App.css'
-import QuickActions from './components/QuickActions'
+import { Outlet } from 'react-router-dom'
 
 function App() {
   const [userInfo, setUserInfo] = useState(user)
@@ -22,16 +21,7 @@ function App() {
   return (
     <div className='app'>
       <Header userInfo={userInfo} markNotificationAsRead={markNotificationAsRead} />
-      <main>
-        <div>
-          <h2 className='title'>My Accounts</h2>
-          <AccountPreview account={checking} />
-          <AccountPreview account={savings} />
-        </div>
-        <div>
-          <QuickActions />
-        </div>
-      </main>
+      <Outlet context={{ checking, setChecking, savings, setSavings }} />
     </div>
   )
 }
