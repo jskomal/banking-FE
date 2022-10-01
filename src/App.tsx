@@ -11,11 +11,17 @@ function App() {
   const [checking, setChecking] = useState(checkingAccount)
   const [savings, setSavings] = useState(savingsAccount)
 
-  const handleNotifications = () => {}
+  const markNotificationAsRead = (id: number) => {
+    setUserInfo((prev) => {
+      const indexToRemove = prev.notifications.findIndex((item) => item.id === id)
+      prev.notifications.splice(indexToRemove, 1)
+      return { ...prev }
+    })
+  }
 
   return (
     <div className='app'>
-      <Header userInfo={userInfo} handleNotifications={handleNotifications} />
+      <Header userInfo={userInfo} markNotificationAsRead={markNotificationAsRead} />
       <main>
         <div>
           <h2 className='title'>My Accounts</h2>
