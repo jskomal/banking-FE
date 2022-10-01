@@ -4,6 +4,7 @@ import { user, checkingAccount, savingsAccount } from './assets/data'
 import Header from './components/Header'
 import AccountPreview from './components/AccountPreview'
 import './App.css'
+import QuickActions from './components/QuickActions'
 
 function App() {
   const [userInfo, setUserInfo] = useState(user)
@@ -22,9 +23,7 @@ function App() {
           <AccountPreview account={savings} />
         </div>
         <div>
-          <h3>Quick Transfer</h3>
-          <p>Transfer Component</p>
-          <p>Quick Actions Component</p>
+          <QuickActions />
         </div>
       </main>
     </div>
