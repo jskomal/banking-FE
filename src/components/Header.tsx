@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import dayjs from 'dayjs'
 import reactLogo from '../assets/react.svg'
 import bell from '../assets/bell.svg'
@@ -5,17 +6,17 @@ import { Link, useLocation } from 'react-router-dom'
 import './Header.css'
 
 import { TUser } from '../assets/data'
+import NotificationModal from './NotificationModal'
 
 type HeaderProps = {
   userInfo: TUser
-  handleNotifications: () => void
+  markNotificationAsRead: (id: number) => void
 }
 
-function Header({ userInfo, handleNotifications }: HeaderProps) {
-  const { firstName, lastName, notificationCount, memberSince } = userInfo
-
+function Header({ userInfo, markNotificationAsRead }: HeaderProps) {
+  const [isNotificationOpen, setIsNotificationOpen] = useState(false)
   const { pathname } = useLocation()
-
+  const { firstName, lastName, memberSince } = userInfo
   const initals = firstName[0].toUpperCase() + lastName[0].toUpperCase()
 
   return (
@@ -37,9 +38,12 @@ function Header({ userInfo, handleNotifications }: HeaderProps) {
         <Link to={'analytics'} className={pathname === '/analytics' ? 'active' : ''}>
           Analytics {'\u2304'}
         </Link>
-        <div className='notification'>
+        <div
+          className='notification'
+          onClick={() => setIsNotificationOpen((prev) => !prev)}
+        >
           <img src={bell} alt='notification' />
-          <p>{notificationCount}</p>
+          <p>{userInfo.notifications.length}</p>
         </div>
         <div className='user'>
           <h2 className='initials'>{initals}</h2>
@@ -52,6 +56,12 @@ function Header({ userInfo, handleNotifications }: HeaderProps) {
         </div>
       </div>
       <hr />
+      {isNotificationOpen && userInfo.notifications.length > 0 && (
+        <NotificationModal
+          notifications={userInfo.notifications}
+          markNotificationAsRead={markNotificationAsRead}
+        />
+      )}
     </header>
   )
 }
