@@ -1,12 +1,13 @@
 import { useState } from 'react'
 import dayjs from 'dayjs'
-import reactLogo from '../assets/react.svg'
-import bell from '../assets/bell.svg'
 import { Link, useLocation } from 'react-router-dom'
-import './Header.css'
+
+import bell from '../assets/bell.svg'
+import reactLogo from '../assets/react.svg'
+import NotificationModal from './NotificationModal'
 
 import { TUser } from '../assets/data'
-import NotificationModal from './NotificationModal'
+import './Header.css'
 
 type HeaderProps = {
   userInfo: TUser
