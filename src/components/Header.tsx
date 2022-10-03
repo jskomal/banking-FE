@@ -22,6 +22,9 @@ function Header({ userInfo, markNotificationAsRead }: HeaderProps) {
 
   return (
     <header>
+      <a href='#main' className='hidden-link'>
+        Skip to main
+      </a>
       <div className='header'>
         <div className='logo'>
           <img src={reactLogo} alt='Fake Bank Logo' />

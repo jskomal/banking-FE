@@ -11,7 +11,7 @@ type HomeProps = {
 
 function Home({ checking, savings }: HomeProps) {
   return (
-    <main>
+    <main id='main'>
       <div>
         <h2 className='title'>My Accounts</h2>
         <AccountPreview account={checking} />
