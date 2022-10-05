@@ -1,21 +1,21 @@
-import React from 'react'
 import AccountPreview from './AccountPreview'
 import QuickActions from './QuickActions'
 
-import type { TAccount } from '../assets/data'
+import type { TAccount, TUser } from '../assets/data'
 
 type HomeProps = {
   checking: TAccount
   savings: TAccount
+  userInfo: TUser
 }
 
-function Home({ checking, savings }: HomeProps) {
+function Home({ checking, savings, userInfo }: HomeProps) {
   return (
     <main id='main'>
       <div>
         <h2 className='title'>My Accounts</h2>
-        <AccountPreview account={checking} />
-        <AccountPreview account={savings} />
+        {userInfo.settings.isCheckingShown && <AccountPreview account={checking} />}
+        {userInfo.settings.isSavingsShown && <AccountPreview account={savings} />}
       </div>
       <div>
         <QuickActions />
