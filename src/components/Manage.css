@@ -1,0 +1,25 @@
+.manage-view {
+  display: flex;
+  justify-content: center;
+  background-color: whitesmoke;
+  height: 89vh;
+}
+
+.manage-container {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 50vw;
+  border: 1px solid white;
+  border-radius: 1rem;
+  background-color: white;
+  text-align: center;
+  padding: 1rem;
+  height: 20vh;
+}
+
+.input-pair {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+}
