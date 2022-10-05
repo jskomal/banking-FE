@@ -8,6 +8,7 @@ import Analytics from './components/Analytics'
 
 import './App.css'
 import { user, checkingAccount, savingsAccount } from './assets/data'
+import Manage from './components/Manage'
 
 function App() {
   const [userInfo, setUserInfo] = useState(user)
@@ -26,9 +27,16 @@ function App() {
     <div className='app'>
       <Header userInfo={userInfo} markNotificationAsRead={markNotificationAsRead} />
       <Routes>
-        <Route path='/' element={<Home checking={checking} savings={savings} />} />
+        <Route
+          path='/'
+          element={<Home checking={checking} savings={savings} userInfo={userInfo} />}
+        />
         <Route path='/transfer' element={<Transfer />} />
         <Route path='/analytics' element={<Analytics />} />
+        <Route
+          path='/manage'
+          element={<Manage userInfo={userInfo} setUserInfo={setUserInfo} />}
+        />
       </Routes>
     </div>
   )
