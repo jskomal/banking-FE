@@ -19,6 +19,10 @@ export type TUser = {
   lastName: string
   memberSince: string
   notifications: TNotification[]
+  settings: {
+    isCheckingShown: boolean
+    isSavingsShown: boolean
+  }
 }
 
 export type TNotification = {
@@ -39,7 +43,11 @@ export const user: TUser = {
       body: "Thank you for joining us! We're so happy that you've chosen to join our Credit Union!",
       isRead: false
     }
-  ]
+  ],
+  settings: {
+    isCheckingShown: true,
+    isSavingsShown: true
+  }
 }
 
 export const checkingAccount: TAccount = {
