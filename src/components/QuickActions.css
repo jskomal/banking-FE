@@ -5,6 +5,7 @@
   box-shadow: 0 0 4px gray;
   padding: 1rem;
   display: grid;
+  margin-top: 1rem;
 }
 
 .link {
