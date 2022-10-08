@@ -13,7 +13,7 @@ function NotificationModal({ notifications, markNotificationAsRead }: Notificati
         {notifications.map((notification) => {
           if (!notification.isRead) {
             return (
-              <div className='notification-row'>
+              <div className='notification-row' key={notification.id}>
                 <strong>{notification.title}</strong>
                 <p>{notification.body}</p>
                 <button
