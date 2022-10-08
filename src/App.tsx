@@ -6,7 +6,6 @@ import Home from './components/Home'
 import Transfer from './components/Transfer'
 import Analytics from './components/Analytics'
 
-import './App.css'
 import { user, checkingAccount, savingsAccount } from './assets/data'
 import Manage from './components/Manage'
 
