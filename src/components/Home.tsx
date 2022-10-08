@@ -4,6 +4,8 @@ import QuickActions from './QuickActions'
 import type { TAccount, TUser } from '../assets/data'
 import { Link } from 'react-router-dom'
 
+import { Main, Title } from '../components/styledComponents'
+
 type HomeProps = {
   checking: TAccount
   savings: TAccount
@@ -12,9 +14,9 @@ type HomeProps = {
 
 function Home({ checking, savings, userInfo }: HomeProps) {
   return (
-    <main id='main'>
+    <Main id='main'>
       <div>
-        <h2 className='title'>My Accounts</h2>
+        <Title className='title'>My Accounts</Title>
         {userInfo.settings.isCheckingShown && <AccountPreview account={checking} />}
         {userInfo.settings.isSavingsShown && <AccountPreview account={savings} />}
         {!userInfo.settings.isCheckingShown && !userInfo.settings.isSavingsShown && (
@@ -30,7 +32,7 @@ function Home({ checking, savings, userInfo }: HomeProps) {
       <div>
         <QuickActions />
       </div>
-    </main>
+    </Main>
   )
 }
 
