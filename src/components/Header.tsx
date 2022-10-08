@@ -7,7 +7,6 @@ import reactLogo from '../assets/react.svg'
 import NotificationModal from './NotificationModal'
 
 import { TUser } from '../assets/data'
-import './Header.css'
 
 import {
   HeaderComp,
@@ -41,13 +40,30 @@ function Header({ userInfo, markNotificationAsRead }: HeaderProps) {
             <p>Credit Union</p>
           </div>
         </Logo>
-        <Link to={'/'} className={pathname === '/' ? 'active' : ''}>
+        <Link
+          to={'/'}
+          style={pathname === '/' ? { color: 'red', borderBottom: '2px solid red' } : {}}
+        >
           My Accounts {'\u2304'}
         </Link>
-        <Link to={'transfer'} className={pathname === '/transfer' ? 'active' : ''}>
+        <Link
+          to={'transfer'}
+          style={
+            pathname === '/transfer'
+              ? { color: 'red', borderBottom: '2px solid red' }
+              : {}
+          }
+        >
           Move Money {'\u2304'}
         </Link>
-        <Link to={'analytics'} className={pathname === '/analytics' ? 'active' : ''}>
+        <Link
+          to={'analytics'}
+          style={
+            pathname === '/analytics'
+              ? { color: 'red', borderBottom: '2px solid red' }
+              : {}
+          }
+        >
           Analytics {'\u2304'}
         </Link>
         <Notification onClick={() => setIsNotificationOpen((prev) => !prev)}>
