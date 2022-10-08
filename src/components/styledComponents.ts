@@ -51,8 +51,7 @@ export const HeaderComp = styled.header`
     font-size: 1.5rem;
     transition: 300ms ease-in-out;
     border: 2px solid white;
-
-    & :hover {
+    &:hover {
       color: red;
       border-bottom: 2px solid red;
       transition: 300ms ease-in-out;
@@ -121,4 +120,28 @@ export const Initials = styled.h2`
 
 export const UserDetails = styled.div`
   text-align: end;
+`
+
+export const NotificationView = styled.div`
+  background-color: whitesmoke;
+  padding: 0.5rem;
+`
+
+export const NotificationContainer = styled.section`
+  width: 100vw;
+  display: grid;
+  place-items: center;
+  gap: 0.5rem;
+`
+
+export const NotificationRow = styled.div`
+  display: grid;
+  gap: 0.5rem;
+  width: 40vw;
+  min-width: 550px;
+  place-items: center;
+  background-color: white;
+  padding: 1rem;
+  border-radius: 1rem;
+  box-shadow: 0 0 4px grey;
 `
