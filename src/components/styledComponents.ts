@@ -189,3 +189,46 @@ export const InputPair = styled.div`
   display: grid;
   grid-template-columns: 2fr 1fr;
 `
+
+export const AccountPreviewView = styled.section`
+  position: relative;
+  background-color: white;
+  border: 1px solid white;
+  border-radius: 1rem;
+  padding: 0.5rem;
+  text-align: center;
+  width: 40vw;
+  min-width: 500px;
+  box-shadow: 0 0 4px gray;
+  margin: 1rem 0;
+`
+
+export const Carrot = styled.img`
+  width: 1rem;
+  height: 1rem;
+  position: absolute;
+  top: 1vh;
+  right: 1vh;
+  transition: 300ms ease-in-out;
+  color: gray;
+  cursor: pointer;
+  &.flipped {
+    transform: rotate(180deg);
+  }
+`
+
+export const GridRow = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 0.8fr 2fr 1fr;
+`
+
+export const GridItem = styled.div`
+  border: 0.5px solid black;
+`
+
+export const BalancePair = styled.div`
+  margin-top: 0.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+`

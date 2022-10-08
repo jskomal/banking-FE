@@ -6,7 +6,14 @@ import { Link } from 'react-router-dom'
 
 import downArrow from '../assets/down.svg'
 
-import './AccountPreview.css'
+import {
+  AccountPreviewView,
+  BalancePair,
+  Btn,
+  Carrot,
+  GridItem,
+  GridRow
+} from './styledComponents'
 
 type AccountProps = {
   account: TAccount
@@ -16,45 +23,45 @@ const AccountPreview = ({ account }: AccountProps) => {
   const [isAccountOpen, setIsAccountOpen] = useState(false)
 
   return (
-    <section className='account-preview'>
+    <AccountPreviewView>
       <h4>{account.name}</h4>
       <h5>Account # {account.accountNumber}</h5>
-      <img
+      <Carrot
         onClick={() => setIsAccountOpen((prev) => !prev)}
-        className={'carrot' + (isAccountOpen ? ' flipped' : '')}
+        className={isAccountOpen ? ' flipped' : ''}
         src={downArrow}
         alt='Show recent transactions'
       />
 
       {isAccountOpen && (
-        <div>
-          <div className='grid-row'>
-            <strong className='row-item'>Date</strong>
-            <strong className='row-item'>Type</strong>
-            <strong className='row-item'>Requester</strong>
-            <strong className='row-item'>Amount</strong>
-          </div>
+        <>
+          <GridRow>
+            <GridItem>Date</GridItem>
+            <GridItem>Type</GridItem>
+            <GridItem>Requester</GridItem>
+            <GridItem>Amount</GridItem>
+          </GridRow>
           {account.transactions.map((entry, index) => {
             if (index < 5) {
               return (
-                <div className='grid-row' key={index}>
-                  <p className='row-item'>{dayjs(entry.date).format('MMM D, YYYY')}</p>
-                  <p className='row-item'>{entry.type}</p>
-                  <p className='row-item'>{entry.to || entry.from}</p>
-                  <p className='row-item'>{currency.format(entry.amount)}</p>
-                </div>
+                <GridRow key={index}>
+                  <GridItem>{dayjs(entry.date).format('MMM D, YYYY')}</GridItem>
+                  <GridItem>{entry.type}</GridItem>
+                  <GridItem>{entry.to || entry.from}</GridItem>
+                  <GridItem>{currency.format(entry.amount)}</GridItem>
+                </GridRow>
               )
             }
           })}
-        </div>
+        </>
       )}
-      <div className='balance-pair'>
+      <BalancePair>
         <h5>Balance: {currency.format(account.balance)}</h5>
         <Link to={account.type}>
-          <button className='btn'>See All Transactions</button>
+          <Btn>See All Transactions</Btn>
         </Link>
-      </div>
-    </section>
+      </BalancePair>
+    </AccountPreviewView>
   )
 }
 
