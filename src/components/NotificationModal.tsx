@@ -1,5 +1,11 @@
 import type { TNotification } from '../assets/data'
-import './NotificationModal.css'
+
+import {
+  Btn,
+  NotificationContainer,
+  NotificationRow,
+  NotificationView
+} from '../components/styledComponents'
 
 type NotificationProps = {
   notifications: TNotification[]
@@ -8,27 +14,26 @@ type NotificationProps = {
 
 function NotificationModal({ notifications, markNotificationAsRead }: NotificationProps) {
   return (
-    <div className='notification-modal'>
-      <section className='notification-container'>
+    <NotificationView>
+      <NotificationContainer>
         {notifications.map((notification) => {
           if (!notification.isRead) {
             return (
-              <div className='notification-row' key={notification.id}>
+              <NotificationRow key={notification.id}>
                 <strong>{notification.title}</strong>
                 <p>{notification.body}</p>
-                <button
-                  className='btn'
+                <Btn
                   id='markAsRead'
                   onClick={() => markNotificationAsRead(notification.id)}
                 >
                   Mark as read
-                </button>
-              </div>
+                </Btn>
+              </NotificationRow>
             )
           }
         })}
-      </section>
-    </div>
+      </NotificationContainer>
+    </NotificationView>
   )
 }
 export default NotificationModal
