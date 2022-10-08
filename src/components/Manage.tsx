@@ -1,7 +1,7 @@
 import React from 'react'
 import { TUser } from '../assets/data'
 
-import './Manage.css'
+import { InputPair, ManageContainer, ManageView } from './styledComponents'
 
 type ManageProps = {
   userInfo: TUser
@@ -24,10 +24,10 @@ function Manage({ userInfo, setUserInfo }: ManageProps) {
   }
 
   return (
-    <div className='manage-view'>
-      <div className='manage-container'>
+    <ManageView>
+      <ManageContainer>
         <h2>Manage Account Visibility</h2>
-        <div className='input-pair'>
+        <InputPair>
           <span>Show Checking Account</span>
           <input
             className='checkbox'
@@ -35,8 +35,8 @@ function Manage({ userInfo, setUserInfo }: ManageProps) {
             checked={userInfo.settings.isCheckingShown}
             onChange={handleCheckingVisibility}
           />
-        </div>
-        <div className='input-pair'>
+        </InputPair>
+        <InputPair>
           <span>Show Savings Account</span>
           <input
             className='checkbox'
@@ -44,9 +44,9 @@ function Manage({ userInfo, setUserInfo }: ManageProps) {
             checked={userInfo.settings.isSavingsShown}
             onChange={handleSavingsVisibility}
           />
-        </div>
-      </div>
-    </div>
+        </InputPair>
+      </ManageContainer>
+    </ManageView>
   )
 }
 

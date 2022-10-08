@@ -145,3 +145,47 @@ export const NotificationRow = styled.div`
   border-radius: 1rem;
   box-shadow: 0 0 4px grey;
 `
+
+export const List = styled.div`
+  border: 1px solid white;
+  border-radius: 1rem;
+  background-color: white;
+  box-shadow: 0 0 4px gray;
+  padding: 1rem;
+  display: grid;
+  margin-top: 1rem;
+  & > a {
+    text-decoration: none;
+    color: black;
+    transition: 100ms ease-in-out;
+    &:hover {
+      color: red;
+    }
+  }
+`
+
+export const ManageView = styled.div`
+  display: flex;
+  justify-content: center;
+  background-color: whitesmoke;
+  height: 89vh;
+`
+
+export const ManageContainer = styled.div`
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 50vw;
+  border: 1px solid white;
+  border-radius: 1rem;
+  background-color: white;
+  text-align: center;
+  padding: 1rem;
+  height: 20vh;
+`
+
+export const InputPair = styled.div`
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+`
