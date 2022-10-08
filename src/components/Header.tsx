@@ -9,6 +9,16 @@ import NotificationModal from './NotificationModal'
 import { TUser } from '../assets/data'
 import './Header.css'
 
+import {
+  HeaderComp,
+  HiddenLink,
+  Initials,
+  Logo,
+  Notification,
+  User,
+  UserDetails
+} from '../components/styledComponents'
+
 type HeaderProps = {
   userInfo: TUser
   markNotificationAsRead: (id: number) => void
@@ -21,18 +31,16 @@ function Header({ userInfo, markNotificationAsRead }: HeaderProps) {
   const initals = firstName[0].toUpperCase() + lastName[0].toUpperCase()
 
   return (
-    <header>
-      <a href='#main' className='hidden-link'>
-        Skip to main
-      </a>
-      <div className='header'>
-        <div className='logo'>
+    <>
+      <HiddenLink href='#main'>Skip to main</HiddenLink>
+      <HeaderComp>
+        <Logo>
           <img src={reactLogo} alt='Fake Bank Logo' />
           <div>
             <h1>REACT</h1>
             <p>Credit Union</p>
           </div>
-        </div>
+        </Logo>
         <Link to={'/'} className={pathname === '/' ? 'active' : ''}>
           My Accounts {'\u2304'}
         </Link>
@@ -42,23 +50,20 @@ function Header({ userInfo, markNotificationAsRead }: HeaderProps) {
         <Link to={'analytics'} className={pathname === '/analytics' ? 'active' : ''}>
           Analytics {'\u2304'}
         </Link>
-        <div
-          className='notification'
-          onClick={() => setIsNotificationOpen((prev) => !prev)}
-        >
+        <Notification onClick={() => setIsNotificationOpen((prev) => !prev)}>
           <img src={bell} alt='notification' />
           <p>{userInfo.notifications.length}</p>
-        </div>
-        <div className='user'>
-          <h2 className='initials'>{initals}</h2>
-          <div className='user-details'>
+        </Notification>
+        <User>
+          <Initials>{initals}</Initials>
+          <UserDetails>
             <h3>
               {firstName.toUpperCase()} {lastName.toUpperCase()}
             </h3>
             <p>Member Since {dayjs(memberSince).format('MMM D, YYYY')}</p>
-          </div>
-        </div>
-      </div>
+          </UserDetails>
+        </User>
+      </HeaderComp>
       <hr />
       {isNotificationOpen && userInfo.notifications.length > 0 && (
         <NotificationModal
@@ -66,7 +71,7 @@ function Header({ userInfo, markNotificationAsRead }: HeaderProps) {
           markNotificationAsRead={markNotificationAsRead}
         />
       )}
-    </header>
+    </>
   )
 }
 
