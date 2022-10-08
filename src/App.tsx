@@ -24,7 +24,7 @@ function App() {
   }
 
   return (
-    <div className='app'>
+    <>
       <Header userInfo={userInfo} markNotificationAsRead={markNotificationAsRead} />
       <Routes>
         <Route
@@ -38,7 +38,7 @@ function App() {
           element={<Manage userInfo={userInfo} setUserInfo={setUserInfo} />}
         />
       </Routes>
-    </div>
+    </>
   )
 }
 
